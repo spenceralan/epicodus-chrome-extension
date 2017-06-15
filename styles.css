@@ -1,11 +1,18 @@
+h4, a {
+  font-family: 'Helvetica Neue', 'Open Sans' , sans-serif;
+  font-weight: 300;
+}
+
 #main {
   padding: 20px;
   width: 600px;
+  height: auto;
+  background-color: #FCFCFC;
 }
 
 img {
   width: 200px;
-  margin: 10px 0 30px 30px;
+  margin: 10px 0 30px 180px;
   display: inline-block;
 }
 
