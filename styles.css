@@ -1,6 +1,6 @@
 #main {
   padding: 20px;
-  width: 300px;
+  width: 600px;
 }
 
 img {
@@ -17,6 +17,17 @@ img {
 
 .btn:hover {
   color: #fff;
+}
+
+.button-col-right {
+  padding: 0 0 0 5px;
+}
+
+.button-col-left {
+  padding: 0 5px 0 0;
+}
+
+#user-2 {
 }
 
 #attendance-in {

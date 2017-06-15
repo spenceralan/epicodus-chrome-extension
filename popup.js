@@ -1,3 +1,13 @@
+
+// function launch() {
+//   const messageOptions = {
+//     message: "Don't forget to sign in!"
+//   };
+//   chrome.notification.create(messageOptions);
+// }
+// chrome.app.runtime.onLaunched.addListener(launch);
+
+
 $(document).ready(function() {
   $('#attendance-in').click(function(){
     var email = $('#email').val();
