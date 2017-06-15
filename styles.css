@@ -1,0 +1,36 @@
+#main {
+  padding: 20px;
+  width: 300px;
+}
+
+img {
+  width: 200px;
+  margin: 10px 0 30px 30px;
+  display: inline-block;
+}
+
+.btn {
+  color: #fff;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.btn:hover {
+  color: #fff;
+}
+
+#attendance-in {
+  background-color: #00B3B4;
+}
+
+#attendance-out {
+  background-color: #D9230F;
+}
+
+#epicenter-in {
+  background-color: #029ACF;
+}
+
+#queue {
+  background-color: #f05a26;
+}
