@@ -4,37 +4,25 @@ let hideForms = function() {
   $('#attendance-in').hide();
 }
 
-let showAttendanceIn = function() {
-  $('#attendance-out').hide();
-  $('#epicenter-in').hide();
-  $('#attendance-in').slideDown();
-}
-
-let showAttendanceOut = function() {
-  $('#attendance-in').hide();
-  $('#epicenter-in').hide();
-  $('#attendance-out').slideDown();
-}
-
-let showEpicenterIn = function() {
-  $('#attendance-in').hide();
-  $('#attendance-out').hide();
-  $('#epicenter-in').slideDown();
+let showForm = function(hide1, hide2, show) {
+  $(hide1).hide();
+  $(hide2).hide();
+  $(show).slideDown();
 }
 
 $(document).ready(function() {
   hideForms();
 
   $('#attendance-in-button').click(function() {
-    showAttendanceIn();
+    showForm('#attendance-out', '#epicenter-in', '#attendance-in');
   });
 
   $('#attendance-out-button').click(function(){
-    showAttendanceOut();
+    showForm('#epicenter-in', '#attendance-in', '#attendance-out');
   });
 
   $('#epicenter-in-button').click(function(){
-    showEpicenterIn();
+    showForm('#attendance-in', '#attendance-out', '#epicenter-in');
   });
 });
 //   $('#attendance-in').click(function(){
