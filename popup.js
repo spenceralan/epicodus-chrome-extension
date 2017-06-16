@@ -1,7 +1,7 @@
-let hideForms = function() {
-  $('#attendance-out').hide();
-  $('#epicenter-in').hide();
-  $('#attendance-in').hide();
+let hideForms = function(...forms) {
+  forms.forEach(function(form) {
+    $(form).hide();
+  });
 }
 
 let showForm = function(hide1, hide2, show) {
@@ -11,19 +11,18 @@ let showForm = function(hide1, hide2, show) {
 }
 
 $(document).ready(function() {
-  hideForms();
+  hideForms('#attendance-out', '#epicenter-in', '#attendance-in');
 
   $('#attendance-in-button').click(function() {
     showForm('#attendance-out', '#epicenter-in', '#attendance-in');
 
-    var email1 = $('#email-1').val();
-    var password1 = $('#password-1').val();
-    var email2 = $('#email-2').val();
-    var password2 = $('#password-2').val();
-    var station = $('#station').val();
-
     $('#attendance-in-form').submit(function(event) {
       event.preventDefault();
+      var email1 = $('#email-1').val();
+      var password1 = $('#password-1').val();
+      var email2 = $('#email-2').val();
+      var password2 = $('#password-2').val();
+      var station = $('#station').val();
 
       chrome.tabs.create({url: "https://epicenter.epicodus.com/sign_in"}, function(){
         chrome.tabs.executeScript(
@@ -52,11 +51,11 @@ $(document).ready(function() {
   $('#attendance-out-button').click(function(){
     showForm('#epicenter-in', '#attendance-in', '#attendance-out');
 
-    var email = $('#attendance-out-email').val();
-    var password = $('#attendance-out-password').val();
-
     $('#attendance-out-form').submit(function(event) {
       event.preventDefault();
+      var email = $('#attendance-out-email').val();
+      var password = $('#attendance-out-password').val();
+
       chrome.tabs.create({url: "https://epicenter.epicodus.com/sign_out"}, function(){
         chrome.tabs.executeScript(
           null,
