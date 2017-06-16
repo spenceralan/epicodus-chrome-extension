@@ -1,30 +1,40 @@
+let hideForms = function() {
+  $('#attendance-out').hide();
+  $('#epicenter-in').hide();
+  $('#attendance-in').hide();
+}
+
+let showAttendanceIn = function() {
+  $('#attendance-out').hide();
+  $('#epicenter-in').hide();
+  $('#attendance-in').slideDown();
+}
+
+let showAttendanceOut = function() {
+  $('#attendance-in').hide();
+  $('#epicenter-in').hide();
+  $('#attendance-out').slideDown();
+}
+
+let showEpicenterIn = function() {
+  $('#attendance-in').hide();
+  $('#attendance-out').hide();
+  $('#epicenter-in').slideDown();
+}
+
 $(document).ready(function() {
+  hideForms();
 
-  $('#attendance-in').click(function() {
-    $('#attendance-out-form').hide();
-    $('#epicenter-in-form').hide();
-
-    $('#attendance-in-form').slideDown();
-
-
+  $('#attendance-in-button').click(function() {
+    showAttendanceIn();
   });
 
-  $('#attendance-out').click(function(){
-    $('#attendance-in-form').hide();
-    $('#epicenter-in-form').hide();
-
-    $('#attendance-out-form').slideDown();
-
-
+  $('#attendance-out-button').click(function(){
+    showAttendanceOut();
   });
 
-  $('#epicenter-in').click(function(){
-    $('#attendance-in-form').hide();
-    $('#attendance-out-form').hide();
-
-    $('#epicenter-in-form').slideDown();
-
-
+  $('#epicenter-in-button').click(function(){
+    showEpicenterIn();
   });
 });
 //   $('#attendance-in').click(function(){

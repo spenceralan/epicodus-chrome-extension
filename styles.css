@@ -26,9 +26,12 @@ button {
   width: 100%;
 }
 
+#buttons a {
+  margin-bottom: 10px;
+}
+
 .btn {
   color: #fff;
-  margin-bottom: 10px;
   display: block;
 }
 
