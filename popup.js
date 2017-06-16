@@ -1,23 +1,30 @@
-
 $(document).ready(function() {
 
   $('#attendance-in').click(function() {
-    $('form').slideUp(function() {
-      $('form').hide();
-      $('#attendance-in-form').slideDown();
-    });
+    $('#attendance-out-form').hide();
+    $('#epicenter-in-form').hide();
+
+    $('#attendance-in-form').slideDown();
+
+
   });
 
   $('#attendance-out').click(function(){
-    $('form').slideUp(function() {
-      $('#attendance-out-form').slideDown();
-    });
+    $('#attendance-in-form').hide();
+    $('#epicenter-in-form').hide();
+
+    $('#attendance-out-form').slideDown();
+
+
   });
 
   $('#epicenter-in').click(function(){
-    $('form').slideUp(function() {
-      $('#epicenter-in-form').slideDown();
-    });
+    $('#attendance-in-form').hide();
+    $('#attendance-out-form').hide();
+
+    $('#epicenter-in-form').slideDown();
+
+
   });
 });
 //   $('#attendance-in').click(function(){
