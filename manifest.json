@@ -1,14 +1,14 @@
 {
   "manifest_version": 2,
 
-  "name": "Epicodus Attendance",
-  "description": "Links to the epicodus attendance page",
+  "name": "Epicodus Login",
+  "description": "Your one stop shop for all things Epicodus! Built by students, for students.",
   "version": "1.1",
 
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "popup.html",
-    "default_title": "Hi, it's me Spencer."
+    "default_title": "Epicodus Login."
   },
   "permissions": [
     "activeTab",
