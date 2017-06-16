@@ -3,17 +3,31 @@ h4, a {
   font-weight: 300;
 }
 
+a:link, a:visited, a:hover, a:active, a:focus {
+  text-decoration: none !important;
+  outline: 0 !important;
+  color: #fff !important;
+}
+
+form {
+  display: none;
+}
+
 #main {
   padding: 20px;
-  width: 600px;
+  width: 400px;
   height: auto;
   background-color: #FCFCFC;
 }
 
 img {
   width: 200px;
-  margin: 10px 0 30px 180px;
+  margin: 10px 0 30px 80px;
   display: inline-block;
+}
+
+#submit {
+  width: 100%;
 }
 
 .btn {
@@ -51,4 +65,8 @@ img {
 
 #queue {
   background-color: #f05a26;
+}
+
+#station {
+  margin-top: 5px;
 }
