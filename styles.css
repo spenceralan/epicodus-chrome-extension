@@ -9,10 +9,6 @@ a:link, a:visited, a:hover, a:active, a:focus {
   color: #fff !important;
 }
 
-form {
-  display: none;
-}
-
 #main {
   padding: 20px;
   width: 400px;
@@ -26,7 +22,7 @@ img {
   display: inline-block;
 }
 
-#submit {
+button {
   width: 100%;
 }
 
@@ -48,22 +44,19 @@ img {
   padding: 0 5px 0 0;
 }
 
-#user-2 {
-}
-
-#attendance-in {
+.attendance-in {
   background-color: #00B3B4;
 }
 
-#attendance-out {
+.attendance-out {
   background-color: #D9230F;
 }
 
-#epicenter-in {
+.epicenter-in {
   background-color: #029ACF;
 }
 
-#queue {
+.queue {
   background-color: #f05a26;
 }
 

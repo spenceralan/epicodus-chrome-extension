@@ -15,12 +15,12 @@
 
       <div class="row" id="buttons">
         <div class="col-xs-6 button-col-left">
-          <a class="btn" id="attendance-in">Attendance Sign In</a>
-          <a class="btn" id="attendance-out">Attendance Sign Out</a>
+          <a class="btn attendance-in" id="attendance-in-button">Attendance Sign In</a>
+          <a class="btn attendance-out" id="attendance-out-button">Attendance Sign Out</a>
         </div>
         <div class="col-xs-6 button-col-right">
-          <a class="btn" id="epicenter-in">Epicenter Sign In</a>
-          <a href="https://epicodus-help.firebaseapp.com/" rel="noopener noreferrer" target="_blank" class="btn" id="queue">Help Queue</a>
+          <a class="btn epicenter-in" id="epicenter-in-button">Epicenter Sign In</a>
+          <a class="btn queue" id="queue-button">Help Queue</a>
         </div>
       </div>
 
@@ -48,7 +48,7 @@
             <input type="text" class="form-control" name="station" id="station" placeholder="Station">
           </div>
 
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn attendance-in">Submit</button>
         </form>
       </div>
 
@@ -62,7 +62,7 @@
             <input type="password" class="form-control" name="password" id="attendance-out-password" placeholder="Password">
           </div>
 
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn attendance-out">Submit</button>
         </form>
       </div>
 
@@ -76,7 +76,7 @@
             <input type="password" class="form-control" name="password" id="epicenter-in-password" placeholder="Password">
           </div>
 
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn epicenter-in">Submit</button>
         </form>
       </div>
 
