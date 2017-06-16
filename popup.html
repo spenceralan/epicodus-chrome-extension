@@ -1,9 +1,4 @@
 <!doctype html>
-<!--
- This page is shown when the extension button is clicked, because the
- "browser_action" field in manifest.json contains the "default_popup" key with
- value "popup.html".
- -->
 <html>
   <head>
     <script src="jquery.min.js"></script>
@@ -14,50 +9,79 @@
   </head>
   <body>
     <div id="main">
-      <div class="logo">
+      <div class="row" id="logo">
         <img src="epicodus-logo.png" alt="epicodus logo" />
       </div>
-      <form>
-        <div class="row">
-          <div id="user-1" class="col-xs-6">
-            <h4>First Student</h4>
-            <div class="form-group">
-              <input type="text" class="form-control" name="email-1" id="email-1" placeholder="Email">
-            </div>
-            <div class="form-group">
-              <input type="password" class="form-control" name="password-1" id="password1-" placeholder="Password">
-            </div>
-          </div>
-          <div id="user-2" class="col-xs-6">
-            <h4>Second Student</h4>
-            <div class="form-group">
-              <input type="text" class="form-control" name="email-2" id="email-2" placeholder="Email">
-            </div>
-            <div class="form-group">
-              <input type="password" class="form-control" name="password-2" id="password-2" placeholder="Password">
-            </div>
-          </div>
+
+      <div class="row" id="buttons">
+        <div class="col-xs-6 button-col-left">
+          <a class="btn attendance-in" id="attendance-in-button">Attendance Sign In</a>
+          <a class="btn attendance-out" id="attendance-out-button">Attendance Sign Out</a>
         </div>
-        <div class='row'>
-          <div class="col-xs-12">
-            <div class="form-group">
-              <input type="text" class="form-control" name="station" id="station" placeholder="Station">
-            </div>
-          </div>
+        <div class="col-xs-6 button-col-right">
+          <a class="btn epicenter-in" id="epicenter-in-button">Epicenter Sign In</a>
+          <a class="btn queue" id="queue-button">Help Queue</a>
         </div>
-        <div class="row" id="buttons">
-          <div class="col-md-12">
-            <div class="col-xs-6 button-col-left">
-              <a class="btn" id="attendance-in">Attendance Sign In</a>
-              <a class="btn" id="attendance-out">Attendance Sign Out</a>
-            </div>
-            <div class="col-xs-6 button-col-right">
-              <a class="btn" id="epicenter-in">Epicenter Sign In</a>
-              <a href="https://epicodus-help.firebaseapp.com/" rel="noopener noreferrer" target="_blank" class="btn" id="queue">Help Queue</a>
-            </div>
+      </div>
+
+      <div class="row" id="attendance-in">
+        <form id="attendance-in-form">
+          <h4 class='user-label'>First Student</h4>
+          <div class="form-group">
+            <input type="text" class="form-control" name="email-1" id="email-1" placeholder="Email">
           </div>
+
+          <div class="form-group">
+            <input type="password" class="form-control" name="password-1" id="password-1" placeholder="Password">
+          </div>
+
+          <h4 class='user-label'>Second Student</h4>
+          <div class="form-group">
+            <input type="text" class="form-control" name="email-2" id="email-2" placeholder="Email">
+          </div>
+          
+          <div class="form-group">
+            <input type="password" class="form-control" name="password-2" id="password-2" placeholder="Password">
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" name="station" id="station" placeholder="Station">
+          </div>
+
+          <button type="submit" class="btn attendance-in">Submit</button>
+        </form>
+      </div>
+
+      <div class="row" id="attendance-out">
+        <br>
+        <form id="attendance-out-form">
+          <div class="form-group">
+            <input type="text" class="form-control" name="email" id="attendance-out-email" placeholder="Email">
         </div>
-      </form>
+
+          <div class="form-group">
+            <input type="password" class="form-control" name="password" id="attendance-out-password" placeholder="Password">
+          </div>
+
+          <button type="submit" class="btn attendance-out">Submit</button>
+        </form>
+      </div>
+
+      <div class="row" id="epicenter-in">
+        <br>
+        <form id="epicenter-in-form">
+          <div class="form-group">
+            <input type="text" class="form-control" name="email" id="epicenter-in-email" placeholder="Email">
+          </div>
+
+          <div class="form-group">
+            <input type="password" class="form-control" name="password" id="epicenter-in-password" placeholder="Password">
+          </div>
+
+          <button type="submit" class="btn epicenter-in">Submit</button>
+        </form>
+      </div>
+
     </div>
   </body>
 </html>

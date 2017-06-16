@@ -3,22 +3,35 @@ h4, a {
   font-weight: 300;
 }
 
+a:link, a:visited, a:hover, a:active, a:focus {
+  text-decoration: none !important;
+  outline: 0 !important;
+  color: #fff !important;
+}
+
 #main {
   padding: 20px;
-  width: 600px;
+  width: 400px;
   height: auto;
   background-color: #FCFCFC;
 }
 
 img {
   width: 200px;
-  margin: 10px 0 30px 180px;
+  margin: 10px 0 30px 80px;
   display: inline-block;
+}
+
+button {
+  width: 100%;
+}
+
+#buttons a {
+  margin-bottom: 10px;
 }
 
 .btn {
   color: #fff;
-  margin-bottom: 10px;
   display: block;
 }
 
@@ -34,21 +47,22 @@ img {
   padding: 0 5px 0 0;
 }
 
-#user-2 {
-}
-
-#attendance-in {
+.attendance-in {
   background-color: #00B3B4;
 }
 
-#attendance-out {
+.attendance-out {
   background-color: #D9230F;
 }
 
-#epicenter-in {
+.epicenter-in {
   background-color: #029ACF;
 }
 
-#queue {
+.queue {
   background-color: #f05a26;
+}
+
+#station {
+  margin-top: 5px;
 }
