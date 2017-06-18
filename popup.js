@@ -1,5 +1,3 @@
-
-
 let hideForms = function(...forms) {
   forms.forEach(function(form) {
     $(form).hide();
