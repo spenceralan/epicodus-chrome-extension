@@ -1,8 +1,8 @@
 let options = {
   type: "basic",
-  title: "Sign in reminder",
+  title: "Reminder!",
   message: "Don't forget to sign in!",
-  iconUrl: "icon.png"
+  iconUrl: "/chrome-store-assets/store-icon.png"
 };
 
 chrome.notifications.create(options);

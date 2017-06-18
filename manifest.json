@@ -22,6 +22,7 @@
     "tabs",
     "http://*/*",
     "https://*/*",
-    "notifications"
+    "notifications",
+    "storage"
     ]
 }
