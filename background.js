@@ -1,3 +1,5 @@
+const localStorage = chrome.storage.local
+
 const messageValues = {
   type: "basic",
   title: "Reminder!",
@@ -7,12 +9,11 @@ const messageValues = {
 
 let sendNotification = function(today) {
   chrome.notifications.create(messageValues);
-  chrome.storage.local.set({"lastSent": today});
+  localStorage.set({"lastSent": today});
 }
 
-chrome.storage.local.get("lastSent", function(message) {
+localStorage.get("lastSent", function(message) {
   let today = new Date().toDateString();
   if (message.lastSent === today) { return; }
   sendNotification(today);
-  chrome.storage.local.clear();
 });
