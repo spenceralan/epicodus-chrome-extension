@@ -2,7 +2,7 @@
 
 This project will save the world! Or it might help you remember to sign in when you start your day at Epicodus. Or both!
 
-If you have ever forgotten the url to the Epicodus sign in and out page, can for the life of you remember the url to Epicenter, or never knew and don't know where to find the link to the Epicodus queue... this app is for you!
+If you have ever forgotten the url to the Epicodus sign in and out page, can't for the life of you remember the url to Epicenter, or never knew and don't know where to find the link to the Epicodus queue... this app is for you!
 
 Not only do we provide the paths to get to those critical places, we give you a form to fill out that will sign you in too! There are so many reasons to install this extension!
 
