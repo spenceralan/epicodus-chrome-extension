@@ -19,11 +19,17 @@ let clearCookies = function(cookieDomain) {
   });
 }
 
+let setFocusTo = function(elementID) {
+  console.log(elementID)
+  document.getElementById(elementID).focus();
+}
+
 $(document).ready(function() {
   hideForms('#attendance-out', '#epicenter-in', '#attendance-in');
 
   $('#attendance-in-button').click(function() {
     showForm('#attendance-out', '#epicenter-in', '#attendance-in');
+    setFocusTo("email-1");
 
     $('#attendance-in-form').submit(function(event) {
       event.preventDefault();
@@ -59,6 +65,7 @@ $(document).ready(function() {
 
   $('#attendance-out-button').click(function(){
     showForm('#epicenter-in', '#attendance-in', '#attendance-out');
+    setFocusTo("attendance-out-email");
 
     $('#attendance-out-form').submit(function(event) {
       event.preventDefault();
@@ -84,6 +91,7 @@ $(document).ready(function() {
 
   $('#epicenter-in-button').click(function(){
     showForm('#attendance-in', '#attendance-out', '#epicenter-in');
+    setFocusTo("epicenter-in-email")
 
     $('#epicenter-in-form').submit(function(event) {
       event.preventDefault();
