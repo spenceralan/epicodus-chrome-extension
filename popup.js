@@ -78,6 +78,11 @@ $(document).ready(function() {
 
     $('#epicenter-in-form').submit(function(event) {
       event.preventDefault();
+      chrome.cookies.getAll({domain: "epicenter.epicodus.com"}, function(cookies) {
+        for(var i=0; i<cookies.length;i++) {
+            chrome.cookies.remove({url: "http://epicenter.epicodus.com" + cookies[i].path, name: cookies[i].name});
+        }
+      });
       let email = $('#epicenter-in-email').val();
       let password = $('#epicenter-in-password').val();
 
