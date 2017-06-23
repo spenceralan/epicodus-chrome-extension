@@ -108,7 +108,7 @@ $(document).ready(function() {
     window.close();
   });
 
-  $('#epicenter-forum-button').click(function(){
+  $('#epicodus-forum-button').click(function(){
     chrome.tabs.create({url: "http://forum.epicodus.com/login"});
     window.close();
   });
