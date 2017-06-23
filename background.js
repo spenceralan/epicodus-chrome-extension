@@ -15,6 +15,7 @@ let openPopup = function() {
 }
 
 chrome.storage.local.get("lastSent", function(message) {
+  chrome.storage.local.clear();
   let today = new Date().toDateString();
   if (message.lastSent === today) { return; }
   sendNotification(today);
