@@ -1,3 +1,7 @@
+var port = chrome.extension.connect({
+  name: "Sample Communication"
+});
+
 let hideForms = function(...forms) {
   forms.forEach(function(form) {
     $(form).hide();
@@ -11,6 +15,7 @@ let showForm = function(hide1, hide2, show) {
 }
 
 let clearCookies = function(cookieDomain) {
+  alert("feadfa");
   chrome.cookies.getAll({domain: cookieDomain}, function(cookies) {
     for(var i=0; i<cookies.length;i++) {
       let urlPath = `http://${cookieDomain}/${cookies[i].path}`;
@@ -27,31 +32,15 @@ $(document).ready(function() {
 
     $('#attendance-in-form').submit(function(event) {
       event.preventDefault();
-      var email1 = $('#email-1').val();
-      var password1 = $('#password-1').val();
-      var email2 = $('#email-2').val();
-      var password2 = $('#password-2').val();
-      var station = $('#station').val();
-
-      chrome.tabs.create({url: "https://epicenter.epicodus.com/sign_in"}, function(){
-        chrome.tabs.executeScript(
-          null,
-          {code:`
-            var email1 = document.getElementById('email1');
-            var password1 = document.getElementById('password1');
-            var email2 = document.getElementById('email2');
-            var password2 = document.getElementById('password2');
-            var station = document.getElementById('station');
-            var submit  = document.querySelectorAll('input[type="submit"]')[0];
-            email1.value = '${email1}';
-            password1.value = '${password1}';
-            email2.value = '${email2}';
-            password2.value = '${password2}';
-            station.value = '${station}';
-            submit.click();
-          `}
-        );
-      });
+      let loginCredentials = {
+        type: "attendance login",
+        email1: $('#email-1').val(),
+        password1: $('#password-1').val(),
+        email2: $('#email-2').val(),
+        password2: $('#password-2').val(),
+        station: $('#station').val()
+      }
+      port.postMessage(loginCredentials);
       window.close();
     });
 
@@ -87,23 +76,14 @@ $(document).ready(function() {
 
     $('#epicenter-in-form').submit(function(event) {
       event.preventDefault();
-      clearCookies("epicenter.epicodus.com");
       let email = $('#epicenter-in-email').val();
       let password = $('#epicenter-in-password').val();
-
-      chrome.tabs.create({url: "https://epicenter.epicodus.com/"}, function(){
-        chrome.tabs.executeScript(
-          null,
-          {code:`
-            let email = document.getElementById('user_email');
-            let password = document.getElementById('user_password');
-            let submit  = document.querySelectorAll('input[type="submit"]')[0];
-            email.value = '${email}';
-            password.value = '${password}';
-            submit.click();
-          `}
-        );
-      });
+      let loginCredentials = {
+        type: "epicenter login",
+        username: email,
+        password: password
+      };
+      port.postMessage(loginCredentials);
       window.close();
     });
   });
@@ -124,4 +104,3 @@ $(document).ready(function() {
   });
 
 });
-
