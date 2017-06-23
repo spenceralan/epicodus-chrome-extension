@@ -1,8 +1,4 @@
-/*BOOTSTRAP OVERRIDES*/
-
-.row {
-  margin: 0;
-}
+/*GLOBAL STYLES*/
 
 body {
   background-color: #FCFCFC;
@@ -19,13 +15,6 @@ a:link, a:visited, a:hover, a:active, a:focus {
   color: #fff !important;
 }
 
-#main {
-  padding: 20px;
-  width: 400px;
-  height: auto;
-  background-color: #FCFCFC;
-}
-
 img {
   width: 175px;
   margin: 10px 0 30px 96.25px;
@@ -36,8 +25,10 @@ button {
   width: 100%;
 }
 
-#buttons a {
-  margin-bottom: 10px;
+/*BOOTSTRAP OVERRIDES*/
+
+.row {
+  margin: 0;
 }
 
 .btn {
@@ -47,6 +38,23 @@ button {
 
 .btn:hover {
   color: #fff;
+}
+
+/*CUSTOM STYLES*/
+
+#main {
+  padding: 20px;
+  width: 400px;
+  height: auto;
+  background-color: #FCFCFC;
+}
+
+#station {
+  margin-top: 5px;
+}
+
+#buttons a {
+  margin-bottom: 10px;
 }
 
 .button-col-right {
@@ -79,8 +87,4 @@ button {
 
 .queue {
   background-color: #f05a26;
-}
-
-#station {
-  margin-top: 5px;
 }
