@@ -113,4 +113,15 @@ $(document).ready(function() {
     window.close();
   });
 
+  $('#learn-how-to-program-button').click(function(){
+    chrome.tabs.create({url: "https://www.learnhowtoprogram.com/courses"});
+    window.close();
+  });
+
+  $('#epicodus-forum-button').click(function(){
+    chrome.tabs.create({url: "http://forum.epicodus.com/login"});
+    window.close();
+  });
+
 });
+
