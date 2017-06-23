@@ -10,6 +10,15 @@ let showForm = function(hide1, hide2, show) {
   $(show).slideDown();
 }
 
+let clearCookies = function(cookieDomain) {
+  chrome.cookies.getAll({domain: cookieDomain}, function(cookies) {
+    for(var i=0; i<cookies.length;i++) {
+      let urlPath = `http://${cookieDomain}/${cookies[i].path}`;
+      chrome.cookies.remove({url: urlPath, name: cookies[i].name});
+    }
+  });
+}
+
 $(document).ready(function() {
   hideForms('#attendance-out', '#epicenter-in', '#attendance-in');
 
@@ -78,6 +87,7 @@ $(document).ready(function() {
 
     $('#epicenter-in-form').submit(function(event) {
       event.preventDefault();
+      clearCookies("epicenter.epicodus.com");
       let email = $('#epicenter-in-email').val();
       let password = $('#epicenter-in-password').val();
 
@@ -114,3 +124,4 @@ $(document).ready(function() {
   });
 
 });
+
