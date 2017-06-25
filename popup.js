@@ -6,72 +6,67 @@ let hideForms = function(...forms) {
   });
 }
 
-let showForm = function(hide1, hide2, show) {
-  $(hide1).hide();
-  $(hide2).hide();
-  $(show).slideDown();
+let showForms = function(...forms) {
+  forms.forEach(function(form) {
+    $(form).slideDown();
+  });
+}
+
+let setFocusTo = function(elementID) {
+  document.getElementById(elementID).focus();
 }
 
 $(document).ready(function() {
   hideForms('#attendance-out', '#epicenter-in', '#attendance-in');
 
   $('#attendance-in-button').click(function() {
-    showForm('#attendance-out', '#epicenter-in', '#attendance-in');
+    hideForms('#attendance-out', '#epicenter-in');
+    showForms('#attendance-in');
+    setFocusTo("email-1");
 
     $('#attendance-in-form').submit(function(event) {
       event.preventDefault();
-      let loginCredentials = {
-        type: "attendance login",
+      let credentials = {
         email1: $('#email-1').val(),
         password1: $('#password-1').val(),
         email2: $('#email-2').val(),
         password2: $('#password-2').val(),
-        station: $('#station').val()
+        station: $('#station').val(),
       }
-      port.postMessage(loginCredentials);
+      background.attendanceLogin(credentials);
       window.close();
     });
 
   });
 
   $('#attendance-out-button').click(function(){
-    showForm('#epicenter-in', '#attendance-in', '#attendance-out');
+    hideForms('#epicenter-in', '#attendance-in');
+    showForms('#attendance-out');
+    setFocusTo("attendance-out-email");
 
     $('#attendance-out-form').submit(function(event) {
       event.preventDefault();
-      var email = $('#attendance-out-email').val();
-      var password = $('#attendance-out-password').val();
-
-      chrome.tabs.create({url: "https://epicenter.epicodus.com/sign_out"}, function(){
-        chrome.tabs.executeScript(
-          null,
-          {code:`
-            var email = document.getElementById('email');
-            var password = document.getElementById('password');
-            var submit  = document.querySelectorAll('input[type="submit"]')[0];
-            email.value = '${email}';
-            password.value = '${password}';
-            submit.click();
-          `}
-        );
-      });
+      let credentails = {
+        email: $('#attendance-out-email').val(),
+        password: $('#attendance-out-password').val(),
+      }
+      background.attendanceLogout(credentials);
       window.close();
     });
   });
 
   $('#epicenter-in-button').click(function(){
-    showForm('#attendance-in', '#attendance-out', '#epicenter-in');
+    hideForms('#attendance-in', '#attendance-out');
+    showForms('#epicenter-in');
+    setFocusTo("epicenter-in-email")
 
     $('#epicenter-in-form').submit(function(event) {
       event.preventDefault();
-      let email = $('#epicenter-in-email').val();
-      let password = $('#epicenter-in-password').val();
-      let loginCredentials = {
-        type: "epicenter login",
-        username: email,
-        password: password
+      let credentials = {
+        username: $('#epicenter-in-email').val(),
+        password: $('#epicenter-in-password').val(),
       };
-      background.epicenterLogin(loginCredentials);
+      background.epicenterLogin(credentials);
       window.close();
     });
   });
