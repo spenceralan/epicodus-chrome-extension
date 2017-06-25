@@ -1,10 +1,11 @@
-chrome.extension.onConnect.addListener(function(port) {
-  port.onMessage.addListener(function(loginCredentials) {
-    if (loginCredentials.type === "epicenter login") {
-    epicenterLogin(loginCredentials);
+var clearCookies = function(cookieDomain) {
+  chrome.cookies.getAll({domain: cookieDomain}, function(cookies) {
+    for(var i=0; i<cookies.length;i++) {
+      let urlPath = `http://${cookieDomain}/${cookies[i].path}`;
+      chrome.cookies.remove({url: urlPath, name: cookies[i].name});
     }
   });
-});
+}
 
 const messageValues = {
   type: "basic",
@@ -30,7 +31,7 @@ chrome.storage.local.get("lastSent", function(message) {
   openPopup();
 });
 
-let epicenterLogin = function(loginCredentials) {
+var epicenterLogin = function(credentials) {
   chrome.tabs.create({url: "https://epicenter.epicodus.com/"}, function(){
     chrome.tabs.executeScript(
       null,
@@ -38,15 +39,15 @@ let epicenterLogin = function(loginCredentials) {
         let email = document.getElementById('user_email');
         let password = document.getElementById('user_password');
         let submit  = document.querySelectorAll('input[type="submit"]')[0];
-        email.value = '${loginCredentials.username}';
-        password.value = '${loginCredentials.password}';
+        email.value = '${credentials.username}';
+        password.value = '${credentials.password}';
         submit.click();
       `}
     );
   });
 }
 
-let attendanceLogin = function(loginCredentials) {
+let attendanceLogin = function(credentials) {
   chrome.tabs.create({url: "https://epicenter.epicodus.com/sign_in"}, function(){
     chrome.tabs.executeScript(
       null,

@@ -1,6 +1,4 @@
-var port = chrome.extension.connect({
-  name: "Sample Communication"
-});
+let background = chrome.extension.getBackgroundPage();
 
 let hideForms = function(...forms) {
   forms.forEach(function(form) {
@@ -12,16 +10,6 @@ let showForm = function(hide1, hide2, show) {
   $(hide1).hide();
   $(hide2).hide();
   $(show).slideDown();
-}
-
-let clearCookies = function(cookieDomain) {
-  alert("feadfa");
-  chrome.cookies.getAll({domain: cookieDomain}, function(cookies) {
-    for(var i=0; i<cookies.length;i++) {
-      let urlPath = `http://${cookieDomain}/${cookies[i].path}`;
-      chrome.cookies.remove({url: urlPath, name: cookies[i].name});
-    }
-  });
 }
 
 $(document).ready(function() {
@@ -83,7 +71,7 @@ $(document).ready(function() {
         username: email,
         password: password
       };
-      port.postMessage(loginCredentials);
+      background.epicenterLogin(loginCredentials);
       window.close();
     });
   });
