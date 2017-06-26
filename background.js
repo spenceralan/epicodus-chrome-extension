@@ -11,7 +11,7 @@ const messageValues = {
   type: "basic",
   title: "Reminder!",
   message: "Don't forget to sign in!",
-  iconUrl: "/chrome-store-assets/store-icon.png",
+  iconUrl: "/chrome-store-assets/e_small.png",
 };
 
 let sendNotification = function(today) {
