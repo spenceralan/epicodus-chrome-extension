@@ -46,7 +46,7 @@ $(document).ready(function() {
 
     $('#attendance-out-form').submit(function(event) {
       event.preventDefault();
-      let credentails = {
+      let credentials = {
         email: $('#attendance-out-email').val(),
         password: $('#attendance-out-password').val(),
       }
