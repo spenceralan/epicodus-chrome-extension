@@ -62,7 +62,6 @@ $(document).ready(function() {
         lat: position.coords.latitude,
         lng: position.coords.longitude,
       }, function(data) {
-        debugger
         const TIMECONVERSION = 1000
         let gmtTime = data.timestamp
         let gmtOffset = data.gmtOffset
@@ -71,9 +70,10 @@ $(document).ready(function() {
         let hours = Number(date.getHours());
         let minutes = Number(date.getMinutes());
         let formattedTime = date.toLocaleTimeString();
-        console.log(formattedTime);
-        if ( hours < 16 && minutes < 45) {
+        if ( hours <= 16 && minutes < 45 ) {
           $('#warning').html(`<p class="alert alert-danger text-center">You'll be leaving early if you sign out now since the time is ${formattedTime}</p>`);
+        } else {
+          $('#warning').html('');
         };
       });
     });
