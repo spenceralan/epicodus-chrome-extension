@@ -70,7 +70,7 @@ $(document).ready(function() {
         let hours = Number(date.getHours());
         let minutes = Number(date.getMinutes());
         if ( hours < 16 && minutes < 45) {
-          $('#warning').html(`<p>The current time is: ${hours}:${minutes}. Are you sure you want to log out?</p>`);
+          $('#warning').html(`<p class="alert alert-danger text-center">You'll be leaving early if you sign out now since the time is ${hours}:${minutes}</p>`);
         };
       });
     });
