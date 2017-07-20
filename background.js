@@ -1,3 +1,14 @@
+const MORNING = "08:00:00"
+
+const ONEDAY = 1440
+
+const messageValues = {
+  type: "basic",
+  title: "Reminder!",
+  message: "Don't forget to sign in!",
+  iconUrl: "/chrome-store-assets/e_small.png",
+};
+
 let clearCookies = function(cookieDomain) {
   chrome.cookies.getAll({domain: cookieDomain}, function(cookies) {
     for(var i=0; i<cookies.length;i++) {
@@ -6,13 +17,6 @@ let clearCookies = function(cookieDomain) {
     }
   });
 }
-
-const messageValues = {
-  type: "basic",
-  title: "Reminder!",
-  message: "Don't forget to sign in!",
-  iconUrl: "/chrome-store-assets/e_small.png",
-};
 
 let sendNotification = function(today) {
   chrome.notifications.create(messageValues);
@@ -23,11 +27,17 @@ let openPopup = function() {
   window.open("popup.html", "extension_popup", "width=400,height=620,status=no,scrollbars=yes,resizable=no");
 }
 
-chrome.storage.local.get("lastSent", function(message) {
-  let today = new Date().toDateString();
-  if (message.lastSent === today) { return; }
-  sendNotification(today);
-  openPopup();
+let morningNotificationTime = new Date(new Date(Date.now()).toString().replace(/[0-9]+:[0-9]+:[0-9]+/, MORNING)).getTime();
+
+chrome.alarms.create("Sign In Reminder", { when: morningNotificationTime, periodInMinutes: ONEDAY })
+
+chrome.alarms.onAlarm.addListener(function(alarm) {
+  chrome.storage.local.get("lastSent", function(message) {
+    let today = new Date().toDateString();
+    if (message.lastSent === today) { return; }
+    sendNotification(today);
+    openPopup();
+  });
 });
 
 // the functions are `var` because `let` is not accessible when called from popup
