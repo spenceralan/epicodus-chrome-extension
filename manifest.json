@@ -19,6 +19,7 @@
 
   "permissions": [
     "https://*.epicodus.com/*",
+    "http://*.epicodus.com/*",
     "notifications",
     "storage",
     "cookies",
