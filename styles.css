@@ -88,3 +88,7 @@ button {
 .queue {
   background-color: #f05a26;
 }
+
+#warning {
+  font-weight: 200;
+}

@@ -62,6 +62,7 @@ $(document).ready(function() {
         lat: position.coords.latitude,
         lng: position.coords.longitude,
       }, function(data) {
+        debugger
         const TIMECONVERSION = 1000
         let gmtTime = data.timestamp
         let gmtOffset = data.gmtOffset
