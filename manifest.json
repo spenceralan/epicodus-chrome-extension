@@ -25,6 +25,7 @@
     "notifications",
     "storage",
     "cookies",
-    "geolocation"
+    "geolocation",
+    "alarms"
     ]
 }
