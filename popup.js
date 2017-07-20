@@ -70,8 +70,10 @@ $(document).ready(function() {
         let date = new Date((currentTime) * TIMECONVERSION )
         let hours = Number(date.getHours());
         let minutes = Number(date.getMinutes());
+        let formattedTime = date.toLocaleTimeString();
+        console.log(formattedTime);
         if ( hours < 16 && minutes < 45) {
-          $('#warning').html(`<p class="alert alert-danger text-center">You'll be leaving early if you sign out now since the time is ${hours}:${minutes}</p>`);
+          $('#warning').html(`<p class="alert alert-danger text-center">You'll be leaving early if you sign out now since the time is ${formattedTime}</p>`);
         };
       });
     });
