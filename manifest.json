@@ -5,7 +5,7 @@
 
   "description": "Your one stop shop for all things Epicodus! Built by students, for students.",
 
-  "version": "1.5",
+  "version": "1.7",
 
   "background": {
     "scripts": ["background.js"]
