@@ -56,6 +56,7 @@ $(document).ready(function() {
 
     navigator.geolocation.getCurrentPosition(function(position) {
       $.get('http://api.timezonedb.com/v2/get-time-zone', {
+        // API calls are unlimited, but can only be made once per second
         key: 'FYM6S0W0YKCQ',
         format: 'json',
         by: 'position',
@@ -77,8 +78,6 @@ $(document).ready(function() {
         };
       });
     });
-
-
   });
 
   $('#epicenter-in-button').click(function(){
