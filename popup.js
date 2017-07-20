@@ -53,6 +53,29 @@ $(document).ready(function() {
       background.attendanceLogout(credentials);
       window.close();
     });
+
+    navigator.geolocation.getCurrentPosition(function(position) {
+      $.get('http://api.timezonedb.com/v2/get-time-zone', {
+        key: 'FYM6S0W0YKCQ',
+        format: 'json',
+        by: 'position',
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+      }, function(data) {
+        const TIMECONVERSION = 1000
+        let gmtTime = data.timestamp
+        let gmtOffset = data.gmtOffset
+        let currentTime = gmtTime - gmtOffset
+        let date = new Date((currentTime) * TIMECONVERSION )
+        let hours = Number(date.getHours());
+        let minutes = Number(date.getMinutes());
+        if ( hours < 16 && minutes < 45) {
+          $('#warning').html(`<p>The current time is: ${hours}:${minutes}. Are you sure you want to log out?</p>`);
+        };
+      });
+    });
+
+
   });
 
   $('#epicenter-in-button').click(function(){
