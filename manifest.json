@@ -18,10 +18,7 @@
   },
 
   "permissions": [
-    "activeTab",
-    "tabs",
-    "http://*/*",
-    "https://*/*",
+    "https://*.epicodus.com/*",
     "notifications",
     "storage",
     "cookies",
