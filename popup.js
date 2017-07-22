@@ -12,6 +12,10 @@ let showForms = function(...forms) {
   });
 }
 
+let hideLogo = function() {
+  $('#logo').slideUp();
+}
+
 let setFocusTo = function(elementID) {
   document.getElementById(elementID).focus();
 }
@@ -21,6 +25,7 @@ $(document).ready(function() {
 
   $('#attendance-in-button').click(function() {
     hideForms('#attendance-out', '#epicenter-in');
+    hideLogo();
     showForms('#attendance-in');
     setFocusTo("email-1");
 
@@ -41,6 +46,7 @@ $(document).ready(function() {
 
   $('#attendance-out-button').click(function(){
     hideForms('#epicenter-in', '#attendance-in');
+    hideLogo();
     showForms('#attendance-out');
     setFocusTo("attendance-out-email");
 
@@ -82,6 +88,7 @@ $(document).ready(function() {
 
   $('#epicenter-in-button').click(function(){
     hideForms('#attendance-in', '#attendance-out');
+    hideLogo();
     showForms('#epicenter-in');
     setFocusTo("epicenter-in-email")
 
