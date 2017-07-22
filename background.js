@@ -27,17 +27,24 @@ let openPopup = function() {
   window.open("popup.html", "extension_popup", "width=400,height=620,status=no,scrollbars=yes,resizable=no");
 }
 
-let morningNotificationTime = new Date(new Date(Date.now()).toString().replace(/[0-9]+:[0-9]+:[0-9]+/, MORNING)).getTime();
-
-chrome.alarms.create("Sign In Reminder", { when: morningNotificationTime, periodInMinutes: ONEDAY })
-
-chrome.alarms.onAlarm.addListener(function(alarm) {
+let triggerAlerts = function() {
   chrome.storage.local.get("lastSent", function(message) {
     let today = new Date().toDateString();
     if (message.lastSent === today) { return; }
     sendNotification(today);
     openPopup();
   });
+}
+
+// trigger popup and notification when chrome is launched
+triggerAlerts();
+
+let morningNotificationTime = new Date(new Date(Date.now()).toString().replace(/[0-9]+:[0-9]+:[0-9]+/, MORNING)).getTime();
+
+chrome.alarms.create("Sign In Reminder", { when: morningNotificationTime, periodInMinutes: ONEDAY })
+
+chrome.alarms.onAlarm.addListener(function(alarm) {
+  triggerAlerts();
 });
 
 // the functions are `var` because `let` is not accessible when called from popup
