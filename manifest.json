@@ -5,7 +5,7 @@
 
   "description": "Your one stop shop for all things Epicodus! Built by students, for students.",
 
-  "version": "1.8",
+  "version": "1.9",
 
   "background": {
     "scripts": ["background.js"]
@@ -14,7 +14,7 @@
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "popup.html",
-    "default_title": "Epicodus Login."
+    "default_title": "Epicodus Login"
   },
 
   "permissions": [

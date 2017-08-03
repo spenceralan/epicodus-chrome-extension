@@ -1,3 +1,5 @@
+const SEATTLE_IP_ADDRESS = "38.140.27.106"
+
 let background = chrome.extension.getBackgroundPage();
 
 let hideForms = function(...forms) {
@@ -104,8 +106,15 @@ $(document).ready(function() {
   });
 
   $('#queue-button').click(function(){
-    chrome.tabs.create({url: "https://epicodus-help.firebaseapp.com/"});
-    window.close();
+    $.get('https://api.ipify.org', function(ip) {
+      if(ip == SEATTLE_IP_ADDRESS) {
+        chrome.tabs.create({url: "https://epicodus-seattle-help.firebaseapp.com/"});
+        window.close();
+      } else {
+        chrome.tabs.create({url: "https://epicodus-help.firebaseapp.com/"});
+        window.close();
+      }
+    });
   });
 
   $('#learn-how-to-program-button').click(function(){
